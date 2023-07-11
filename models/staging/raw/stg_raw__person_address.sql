@@ -10,15 +10,12 @@ renamed as (
 
     select
         addressid,
-        city,
-        spatiallocation,
-        postalcode,
-        addressline2,
-        modifieddate,
         stateprovinceid,
         addressline1,
-        rowguid
-
+        addressline2,
+        postalcode,
+        city,
+        modifieddate
     from source
 
 )
