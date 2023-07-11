@@ -9,9 +9,9 @@ source as (
 renamed as (
 
     select
-        cast(businessentityid as int) as id_pessoa,
-        cast(firstname  || ' ' || coalesce(middlename, '') || ' ' || coalesce(lastname, '') as string) as nm_pessoa,
-        modifieddate as dh_modificado
+        cast(businessentityid as int) as businessentityid,
+        cast(firstname  || ' ' || coalesce(middlename, '') || ' ' || coalesce(lastname, '') as string) as nome,
+        modifieddate
     from source
 
 )

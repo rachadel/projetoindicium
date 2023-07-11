@@ -23,3 +23,38 @@ sources:
             tests:
               - unique
               - not_null
+      - name: person_businessentity
+        description: Tabela de relacionamento entre pessoa e entidade
+        columns:
+          - name: businessentityid
+            description: Chave primária da tabela de businessentity
+            tests:
+              - unique
+              - not_null
+
+      - name: person_businessentityaddress
+        description: Tabela de relacionamento entre pessoa entidade e endereço
+        columns:
+          - name: businessentityid
+            description: Chave primária da tabela de businessentityaddress
+            tests:
+              - unique
+              - not_null
+
+      - name: person_stateprovince
+        description: Tabela com informações dos estados
+        columns:
+          - name: stateprovinceid
+            description: Chave primária da tabela de stateprovince
+            tests:
+              - unique
+              - not_null
+
+      - name: person_countryregion
+        description: Tabela com informações dos paises
+        columns:
+          - name: countryregioncode
+            description: Chave primária da tabela de countryregion
+            tests:
+              - unique
+              - not_null
