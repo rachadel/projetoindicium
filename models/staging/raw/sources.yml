@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Fonte de dados do banco Bigquery com as informações carregadas no bigquery
+    schema: raw
+    tables:
+
+      - name: person_person
+        description: Tabela com informações das pessoas
+        columns:
+          - name: businessentityid
+            description: Chave primária da tabela de pessoas
+            tests:
+              - unique
+              - not_null
+
+      - name: person_address
+        description: Tabela com informações do endereço das pessoas
+        columns:
+          - name: addressid
+            description: Chave primária da tabela de endereços
+            tests:
+              - unique
+              - not_null
