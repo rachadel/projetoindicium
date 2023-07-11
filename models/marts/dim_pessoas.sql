@@ -37,16 +37,16 @@ with
     )
 
 select 
-    row_number() over(order by pesssoas.businessentityid) as sk_pessoa,
-    pesssoas.businessentityid as id_pessoa,
-    pesssoas.nome as nm_pessoa,
-    endereco.addressline1 as ds_rua,
-    endereco.addressline2 as ds_complemento,
-    endereco.postalcode as cd_postal,
-    endereco.city as ds_cidade,
-    estado.name as ds_estado,
-    pais.name as ds_pais,
-    current_date as dh_modificado
+    row_number() over(order by pesssoas.businessentityid)   as sk_pessoa,
+    pesssoas.businessentityid                               as id_pessoa,
+    pesssoas.nome                                           as nm_pessoa,
+    endereco.addressline1                                   as ds_rua,
+    endereco.addressline2                                   as ds_complemento,
+    endereco.postalcode                                     as cd_postal,
+    endereco.city                                           as ds_cidade,
+    estado.name                                             as ds_estado,
+    pais.name                                               as ds_pais,
+    current_date                                            as dh_modificado
 from
     pessoas                             as pesssoas
     left join businessentity            as business
