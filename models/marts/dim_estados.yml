@@ -1,0 +1,18 @@
+
+version: 2
+
+models:
+  - name: dim_estados
+    description: Essa é a dimensão de estados com dados proveniente da tabela person.stateprovince
+    columns:
+      - name: sk_estado	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null 
+      - name: id_estado
+      - name: id_territorio
+      - name: cd_estado
+      - name: nm_estado
+      - name: cd_pais
+      - name: dh_atualizacao
