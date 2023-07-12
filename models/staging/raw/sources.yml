@@ -90,3 +90,11 @@ sources:
             tests:
               - unique
               - not_null
+      - name: sales_salesorderheader
+        description: Tabela com informações das datas das vendas
+        columns:
+          - name: salesorderid
+            description: Chave primária para registros das vendas.
+            tests:
+              - unique
+              - not_null
