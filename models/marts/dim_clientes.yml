@@ -17,5 +17,5 @@ models:
                     e do relacionamento da tabela businessentityaddress na coluna businessentityid com a tabela businessentity na coluna businessentityid 
       - name: nm_cliente				
         description: nome do cliente proveniente do relacionamento da tabela person na coluna BusinessEntityID com a tabela customer na coluna personid
-      - name: dh_modificado
+      - name: dh_atualizacao
         description: data e hora que foi gerado essa informação
