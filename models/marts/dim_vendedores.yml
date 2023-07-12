@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: dim_vendedores
+    description: Essa é a dimensão de vendedores com dados proveniente da tabela sales.Salesperson
+    columns:
+      - name: sk_vendedor	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null
+      - name: id_vendedor	
+      - name: id_endereco
+      - name: nm_vendedor
+      - name: dt_nascimento
+      - name: dt_contratado
+      - name: ds_genero
+      - name: ds_situacao
+      - name: dh_atualizacao
