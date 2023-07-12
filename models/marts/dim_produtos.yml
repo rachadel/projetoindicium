@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: dim_produtos
+    description: Essa é a dimensão de produtos com dados proveniente da tabela sales.salesorderdetail e production.product
+    columns:
+      - name: sk_produto	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null      
+      - name: id_produto
+      - name: nm_produto
+      - name: nm_modelo_produto
+      - name: nm_subcategoria_produto
+      - name: nm_categoria_produto
+      - name: ds_cor
+      - name: nr_produto
+      - name: dh_atualizacao
