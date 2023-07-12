@@ -58,3 +58,19 @@ sources:
             tests:
               - unique
               - not_null
+      - name: hr_employee
+        description: Tabela com informações dos colaboradores
+        columns:
+          - name: businessentityid
+            description: Chave primária da tabela de hr_employee
+            tests:
+              - unique
+              - not_null
+      - name: sales_customer
+        description: Tabela com informações dos clientes
+        columns:
+          - name: customerid
+            description: Chave primária da tabela de sales_customer
+            tests:
+              - unique
+              - not_null
