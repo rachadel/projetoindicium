@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: dim_data_vendas
+    description: Essa é a dimensão de data das vendas com dados proveniente da tabela sales.salesorderheader
+    columns:
+      - name: sk_venda	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null      
+      - name: id_venda
+      - name: id_cliente
+      - name: id_endereco_venda
+      - name: dt_criacao_venda
+      - name: dt_pedido_cliente
+      - name: dt_envio_cliente
+      - name: status
+      - name: dh_atualizacao
