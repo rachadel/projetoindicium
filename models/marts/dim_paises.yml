@@ -1,0 +1,14 @@
+
+version: 2
+
+models:
+  - name: dim_paises
+    description: Essa é a dimensão de países com dados proveniente da tabela person.countryregion
+    columns:
+      - name: sk_pais	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null      
+      - name: cd_pais
+      - name: ds_pais
