@@ -1,0 +1,18 @@
+
+version: 2
+
+models:
+  - name: dim_cidades
+    description: Essa é a dimensão de cidades com dados proveniente da tabela person.address
+    columns:
+      - name: sk_cidade	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null      
+      - name: id_endereco
+      - name: id_estado
+      - name: ds_endereco
+      - name: ds_complemento
+      - name: cd_postal
+      - name: ds_cidade
