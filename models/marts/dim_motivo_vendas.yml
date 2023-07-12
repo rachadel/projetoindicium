@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: dim_motivo_vendas
+    description: Essa é a dimensão de motivo de vendas com dados proveniente da tabela sales.salesreason
+    columns:
+      - name: sk_razao_venda	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null
+      - name: id_razao_venda	
+        description: proveniente da coluna salesreasonid da tabela sales.salesreason
+      - name: ds_tipo_razao_venda
+        description: proveniente da coluna reasontype da tabela sales.salesreason
+      - name: ds_razao_venda				
+        description: proveniente da coluna name da tabela sales.salesreason
+      - name: dh_atualizacao
+        description: data e hora que foi gerado essa informação

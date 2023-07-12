@@ -74,3 +74,11 @@ sources:
             tests:
               - unique
               - not_null
+      - name: sales_salesreason
+        description: Tabela com informações do motivo de vendas
+        columns:
+          - name: salesreasonid
+            description: Chave primária da tabela de salesreason
+            tests:
+              - unique
+              - not_null

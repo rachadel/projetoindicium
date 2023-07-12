@@ -32,7 +32,7 @@ with
             customer.customerid                                 as id_cliente,
             businessentityaddress.addressid                     as id_endereco,
             person.nome                                         as nm_cliente,
-            current_date                                        as dh_modificado
+            current_date                                        as dh_atualizacao
         from 
             customer 
             join person
