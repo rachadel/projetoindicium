@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+  - name: dim_clientes
+    description: Essa é a dimensão de clientes com dados proveniente da tabela customers
+    columns:
+      - name: sk_cliente	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null
+      - name: id_cliente	
+        description: proveniente da coluna customerid da tabela customer
+      - name: id_endereco
+        description: coluna addressid proveniente do relacionamento entre as tabelas businessentity na coluna businessentityid com a tabela customer na coluna customerid 
+                    e do relacionamento da tabela businessentityaddress na coluna businessentityid com a tabela businessentity na coluna businessentityid 
+      - name: nm_cliente				
+        description: nome do cliente proveniente do relacionamento da tabela person na coluna BusinessEntityID com a tabela customer na coluna personid
+      - name: dh_modificado
+        description: data e hora que foi gerado essa informação
