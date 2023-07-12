@@ -82,3 +82,11 @@ sources:
             tests:
               - unique
               - not_null
+      - name: sales_salesperson
+        description: Tabela com informações dos vendedores
+        columns:
+          - name: businessentityid
+            description: Chave primária para registros SalesPerson. Chave estrangeira para Employee.BusinessEntityID
+            tests:
+              - unique
+              - not_null
