@@ -111,7 +111,33 @@ sources:
         description: Tabela com informações dos produtos
         columns:
           - name: productid
-            description: Chave primária para registros dos detalhes de produtos.
+            description: Chave primária para registros dos produtos.
             tests:
               - unique
               - not_null
+
+      - name: production_productmodel
+        description: Tabela com informações dos produtos
+        columns:
+          - name: productmodelid
+            description: Chave primária para registros dos modelos de produtos.
+            tests:
+              - unique
+              - not_null
+ 
+      - name: production_productsubcategory
+        description: Tabela com informações dos produtos
+        columns:
+          - name: productsubcategoryid
+            description: Chave primária para registros da subcategoria de produtos.
+            tests:
+              - unique
+              - not_null    
+      - name: production_productcategory
+        description: Tabela com informações dos produtos
+        columns:
+          - name: productcategoryid
+            description: Chave primária para registros da categoria de produtos.
+            tests:
+              - unique
+              - not_null                                    

@@ -1,16 +1,4 @@
 with
-    salesorderdetail as (
-        select 
-            salesorderdetailid as id_detalhe_ordem_venda,
-            productid as id_produto,
-            specialofferid as id_oferta_especial,
-            salesorderid as id_ordem_venda,
-            unitprice as vl_preco_unitario,
-            orderqty  as qt_por_produto,
-            unitpricediscount as vl_desconto
-        from 
-            {{ ref("stg_raw__sales_salesorderdetail") }}
-    ),
     product as (
         select
             productid as id_produto,
@@ -23,21 +11,47 @@ with
         from
             {{ ref("stg_raw__production_product") }}
     ),
+    model as (
+        select 
+            productmodelid as id_modelo_produto,
+            name as nm_modelo_produto
+        from
+            {{ ref("stg_raw__production_productmodel") }}
+    ),
+    subcategory as (
+        select 
+            productsubcategoryid as id_subcategoria_produto,
+            productcategoryid as id_categoria_produto,
+            name as nm_subcategoria_produto
+        from
+            {{ ref("stg_raw__production_productsubcategory") }}
+    ),
+    category as (
+        select 
+            productcategoryid as id_categoria_produto,
+            name as nm_categoria_produto
+        from
+            {{ ref("stg_raw__production_productcategory") }}
+    ),
     transformacao as (
         select distinct
             row_number() over (order by product.id_produto)  as sk_produto,
             product.id_produto,
-            product.id_modelo_produto,
-            product.id_subcategoria_produto,
             product.nm_produto,
-            product.nm_linha_produto,
+            model.nm_modelo_produto,
+            subcategory.nm_subcategoria_produto,
+            category.nm_categoria_produto,
             product.ds_cor,
             product.nr_produto,
             current_date                                     as dh_atualizacao
         from 
-            salesorderdetail 
-            join product
-                on product.id_produto = salesorderdetail.id_produto              
+            product
+            left join model
+                on product.id_modelo_produto = model.id_modelo_produto
+            left join subcategory
+                on product.id_subcategoria_produto = subcategory.id_subcategoria_produto
+            left join category
+                on subcategory.id_categoria_produto = category.id_categoria_produto           
     )
 
 select * from transformacao
