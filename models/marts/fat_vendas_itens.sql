@@ -34,7 +34,8 @@ with
                 when vl_desconto_item > 0 then true
                 when vl_desconto_item = 0 then false
                 else false
-                end as fl_possui_desconto
+                end as fl_possui_desconto,
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from    
            join_tabelas 
     )

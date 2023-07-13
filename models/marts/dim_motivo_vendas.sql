@@ -11,7 +11,7 @@ with
         select
             row_number() over(order by id_razao_venda) as sk_razao_venda,
             *,
-            current_date as dh_atualizacao
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from 
             salesreason
     )

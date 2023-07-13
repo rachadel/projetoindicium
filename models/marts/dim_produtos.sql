@@ -43,7 +43,7 @@ with
             category.nm_categoria_produto,
             product.ds_cor,
             product.nr_produto,
-            current_date                                     as dh_atualizacao
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from 
             product
             left join model

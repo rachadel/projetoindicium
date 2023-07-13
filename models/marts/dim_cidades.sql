@@ -14,7 +14,7 @@ with
         select
             row_number() over (order by id_endereco) as sk_cidade,
             *,
-            current_date                           as dh_atualizacao
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from 
             address
     )

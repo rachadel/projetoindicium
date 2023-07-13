@@ -32,7 +32,7 @@ with
                 then 'Cliente'
                 else 'Loja'
                 end as ds_tipo_cliente,
-            current_date                                        as dh_atualizacao
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from 
             customer 
             left join person
