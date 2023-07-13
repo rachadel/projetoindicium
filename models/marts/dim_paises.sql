@@ -15,4 +15,4 @@ with
             pais
     )
 
-select * from transformacao
+select * from transformacao order by sk_pais

@@ -73,4 +73,4 @@ with
             
     )
 
-select * from transformacao
+select * from transformacao order by sk_vendedor

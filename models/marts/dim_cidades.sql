@@ -19,4 +19,4 @@ with
             address
     )
 
-select * from transformacao
+select * from transformacao order by sk_cidade

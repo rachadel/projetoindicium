@@ -9,38 +9,37 @@ with
     customer as (
         select 
             customerid, 
-            personid
+            personid,
+            storeid
         from 
             {{ ref("stg_raw__sales_customer") }}
     ),
-    businessentity as (
+    store as (
         select 
-            businessentityid
+            businessentityid, 
+            name,
+            salespersonid
         from 
-            {{ ref("stg_raw__person_businessentity") }}
-    ),
-    businessentityaddress as (
-        select 
-            businessentityid,
-            addressid
-        from 
-            {{ ref("stg_raw__person_businessentityaddress") }}
+            {{ ref("stg_raw__sales_store") }}
     ),
     transformacao as (
         select
             row_number() over (order by customer.customerid)    as sk_cliente,
             customer.customerid                                 as id_cliente,
-            businessentityaddress.addressid                     as id_endereco,
-            person.nome                                         as nm_cliente,
+            coalesce(person.nome, store.name)                   as nm_cliente,
+            case
+                when customer.personid is not null
+                then 'Cliente'
+                else 'Loja'
+                end as ds_tipo_cliente,
             current_date                                        as dh_atualizacao
         from 
             customer 
-            join person
-                on person.BusinessEntityID = customer.personid
-            left join businessentity 
-                on businessentity.businessentityid = customer.customerid 
-            left join businessentityaddress 
-                on businessentityaddress.businessentityid = businessentity.businessentityid 
+            left join person
+                on person.businessentityid = customer.personid
+            left join store
+                on customer.storeid = store.businessentityid
     )
 
-select * from transformacao
+select * from transformacao order by sk_cliente
+

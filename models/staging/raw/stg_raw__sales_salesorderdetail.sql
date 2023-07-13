@@ -9,15 +9,14 @@ source as (
 renamed as (
 
     select
-        salesorderdetailid,
-        productid,
-        specialofferid,
-        salesorderid,
-        unitprice,
-        orderqty,
-        unitpricediscount,
-        carriertrackingnumber,
-        modifieddate
+        cast(salesorderdetailid as int)     salesorderdetailid,
+        cast(productid as int)              productid,
+        cast(specialofferid as int)         specialofferid,
+        cast(salesorderid as int)           salesorderid,
+        cast(unitprice as numeric)          unitprice,
+        cast(orderqty as numeric)           orderqty,
+        cast(unitpricediscount as numeric)  unitpricediscount,
+        cast(modifieddate as timestamp)     modifieddate
 
     from source
 

@@ -18,4 +18,4 @@ with
             stateprovince
     )
 
-select * from transformacao
+select * from transformacao order by sk_estado

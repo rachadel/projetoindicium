@@ -1,24 +1,27 @@
 with
     salesorderheader as (
-        select 
-            salesorderid as id_venda,
-            customerid   as id_cliente,
-            shiptoaddressid as id_endereco_venda,
-            date(orderdate) as dt_criacao_venda,
-            date(duedate) as dt_pedido_cliente,
-            date(shipdate) as dt_envio_cliente,
-            status
+        select distinct
+            orderdate as dt_criacao_venda
         from 
             {{ ref("stg_raw__sales_salesorderheader") }}
     ),
 
     transformacao as (
         select
-            row_number() over (order by salesorderheader.id_venda)  as sk_venda,
-            *,
-            current_date                                            as dh_atualizacao
+            cast(
+                concat(
+                substring(dt_criacao_venda, 0, 4),
+                substring(dt_criacao_venda, 6, 2),
+                substring(dt_criacao_venda, 9, 2)
+                )   
+                as int)  as sk_data,
+            substring(dt_criacao_venda, 0, 4) as dt_ano,
+            substring(dt_criacao_venda, 6, 2) as dt_mes,
+            substring(dt_criacao_venda, 9, 2) as dt_dia,
+            cast(substring(dt_criacao_venda, 0, 10) as date) dt_criacao_venda,
+            current_date as dh_atualizacao
         from 
             salesorderheader              
     )
 
-select * from transformacao
+select * from transformacao order by sk_data

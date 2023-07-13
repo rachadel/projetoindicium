@@ -16,4 +16,4 @@ with
             salesreason
     )
 
-select * from transformacao
+select * from transformacao order by sk_razao_venda

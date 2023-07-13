@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        cast(businessentityid as int) as businessentityid,
+        businessentityid,
         cast(firstname  || ' ' || coalesce(middlename, '') || ' ' || coalesce(lastname, '') as string) as nome,
         modifieddate
     from source
