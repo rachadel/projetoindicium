@@ -64,10 +64,5 @@ with
            join_tabelas 
     )
 
-select * from transformacao order by sk_venda
-
-
-
-
-
+select * from transformacao order by id_venda
 

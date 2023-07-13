@@ -1,0 +1,12 @@
+
+version: 2
+
+models:
+  - name: fat_vendas_itens
+    description: Essa é a fato dos itens das vendas
+    columns:
+      - name: sk_venda_item	
+        description: essa é a coluna chave surrogate key da tabela
+        tests:
+          - unique
+          - not_null
