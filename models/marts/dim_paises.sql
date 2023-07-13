@@ -10,7 +10,7 @@ with
         select
             row_number() over (order by cd_pais) as sk_pais,
             *,
-            current_date                           as dh_atualizacao
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from 
             pais
     )

@@ -59,7 +59,8 @@ with
     transformacao as (
         select
             {{dbt_utils.generate_surrogate_key(['id_venda', 'sk_cliente'])}} as sk_venda,
-            *
+            *,
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from    
            join_tabelas 
     )

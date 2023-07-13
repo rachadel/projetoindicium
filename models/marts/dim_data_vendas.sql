@@ -19,7 +19,7 @@ with
             substring(dt_criacao_venda, 6, 2) as dt_mes,
             substring(dt_criacao_venda, 9, 2) as dt_dia,
             cast(substring(dt_criacao_venda, 0, 10) as date) dt_criacao_venda,
-            current_date as dh_atualizacao
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from 
             salesorderheader              
     )

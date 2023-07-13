@@ -13,7 +13,7 @@ with
         select
             row_number() over (order by id_estado) as sk_estado,
             *,
-            current_date                           as dh_atualizacao
+            current_datetime('America/Sao_Paulo') as dh_atualizacao
         from 
             stateprovince
     )
