@@ -48,7 +48,7 @@ with
             vendas.id_cliente,
             vendas.id_endereco_cliente,
             motivo_vendas.id_motivo_venda,
-            cartoes.ds_cartao,
+            coalesce(cartoes.ds_cartao, 'Não Informado') as ds_cartao,
             vendas.dt_criacao_venda,
             vendas.dt_pedido_cliente,
             vendas.dt_envio_cliente,
