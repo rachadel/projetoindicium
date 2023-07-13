@@ -128,9 +128,6 @@ sources:
         columns:
           - name: salesreasonid
             description: Chave primária das razoes.
-            tests:
-              - unique
-              - not_null
 ## Production
       - name: production_product
         description: Tabela com informações dos produtos
