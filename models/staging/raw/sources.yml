@@ -35,7 +35,7 @@ sources:
       - name: person_businessentityaddress
         description: Tabela de relacionamento entre pessoa entidade e endereço
         columns:
-          - name: businessentityid
+          - name: addressid
             description: Chave primária da tabela de businessentityaddress
             tests:
               - unique
