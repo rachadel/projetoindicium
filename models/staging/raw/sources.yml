@@ -107,6 +107,22 @@ sources:
             tests:
               - unique
               - not_null
+      - name: sales_creditcard
+        description: Tabela com informações dos detalhes dos cartóes
+        columns:
+          - name: creditcardid
+            description: Chave primária dos cartões.
+            tests:
+              - unique
+              - not_null
+      - name: sales_store
+        description: Tabela com informações dos detalhes das lojas
+        columns:
+          - name: businessentityid
+            description: Chave primária das lojas.
+            tests:
+              - unique
+              - not_null
       - name: production_product
         description: Tabela com informações dos produtos
         columns:

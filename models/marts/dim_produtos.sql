@@ -54,4 +54,4 @@ with
                 on subcategory.id_categoria_produto = category.id_categoria_produto           
     )
 
-select * from transformacao
+select * from transformacao order by sk_produto
