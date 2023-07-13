@@ -6,6 +6,7 @@ sources:
     schema: raw
     tables:
 
+## Person
       - name: person_person
         description: Tabela com informações das pessoas
         columns:
@@ -14,7 +15,6 @@ sources:
             tests:
               - unique
               - not_null
-
       - name: person_address
         description: Tabela com informações do endereço das pessoas
         columns:
@@ -31,7 +31,6 @@ sources:
             tests:
               - unique
               - not_null
-
       - name: person_businessentityaddress
         description: Tabela de relacionamento entre pessoa entidade e endereço
         columns:
@@ -40,7 +39,6 @@ sources:
             tests:
               - unique
               - not_null
-
       - name: person_stateprovince
         description: Tabela com informações dos estados
         columns:
@@ -49,7 +47,6 @@ sources:
             tests:
               - unique
               - not_null
-
       - name: person_countryregion
         description: Tabela com informações dos paises
         columns:
@@ -58,6 +55,8 @@ sources:
             tests:
               - unique
               - not_null
+
+## Human Resources
       - name: hr_employee
         description: Tabela com informações dos colaboradores
         columns:
@@ -66,6 +65,8 @@ sources:
             tests:
               - unique
               - not_null
+
+## Sales
       - name: sales_customer
         description: Tabela com informações dos clientes
         columns:
@@ -98,7 +99,6 @@ sources:
             tests:
               - unique
               - not_null
-
       - name: sales_salesorderdetail
         description: Tabela com informações dos detalhes das vendas
         columns:
@@ -123,6 +123,15 @@ sources:
             tests:
               - unique
               - not_null
+      - name: sales_salesorderheadersalesreason
+        description: Tabela de relacionamento entre a razao e as vendas
+        columns:
+          - name: salesreasonid
+            description: Chave primária das razoes.
+            tests:
+              - unique
+              - not_null
+## Production
       - name: production_product
         description: Tabela com informações dos produtos
         columns:
@@ -131,7 +140,6 @@ sources:
             tests:
               - unique
               - not_null
-
       - name: production_productmodel
         description: Tabela com informações dos produtos
         columns:
@@ -140,7 +148,6 @@ sources:
             tests:
               - unique
               - not_null
- 
       - name: production_productsubcategory
         description: Tabela com informações dos produtos
         columns:
