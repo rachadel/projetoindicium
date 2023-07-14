@@ -10,11 +10,11 @@ models:
         tests:
           - unique
           - not_null
-      - name: id_motivo_venda	
-        description: proveniente da coluna salesreasonid da tabela sales.salesreason
-      - name: ds_tipo_motivo_venda
-        description: proveniente da coluna reasontype da tabela sales.salesreason
-      - name: ds_motivo_venda				
-        description: proveniente da coluna name da tabela sales.salesreason
+      - name: id_venda	
+        description: proveniente da coluna salesorderid da tabela sales.salesorderheadersalesreason
+      - name: ds_motivo_venda
+        description: proveniente do agrupamento coluna name da tabela sales.salesreason, pois uma mesma venda pode ter mais de um motivo.
+      - name: fl_promotion				
+        description: campo booleano para caso um dos motivos contem 'promotion'
       - name: dh_atualizacao
         description: data e hora que foi gerado essa informação
