@@ -63,7 +63,7 @@ with
             left join dim_cidades
                 on dim_cidades.id_endereco = vendas.id_endereco_cliente
             left join dim_motivo_vendas
-                on dim_motivo_vendas.id_motivo_venda = vendas.id_motivo_venda
+                on dim_motivo_vendas.id_venda = vendas.id_venda
     ),
     transformacao as (
         select

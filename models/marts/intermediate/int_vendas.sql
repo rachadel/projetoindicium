@@ -32,22 +32,12 @@ with
         from
             {{ ref('stg_raw__sales_creditcard') }}
     ),
-    motivo_vendas as (
-        select
-            salesorderid as id_venda,
-            salesreasonid as id_motivo_venda
-        from
-            {{ ref('stg_raw__sales_salesorderheadersalesreason') }}
-        where
-            salesreasonid = 2 -- Promotion
-    ),
     join_tables as (
         select
             vendas.id_venda,
             vendas.id_vendedor,
             vendas.id_cliente,
             vendas.id_endereco_cliente,
-            motivo_vendas.id_motivo_venda,
             coalesce(cartoes.ds_cartao, 'Não Informado') as ds_cartao,
             vendas.dt_criacao_venda,
             vendas.dt_pedido_cliente,
@@ -61,8 +51,6 @@ with
             vendas
             left join cartoes
                 on vendas.id_cartao_credito = cartoes.id_cartao_credito
-            left join motivo_vendas
-                on motivo_vendas.id_venda = vendas.id_venda
     )
 
 select * from join_tables order by id_venda
