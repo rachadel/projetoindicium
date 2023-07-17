@@ -23,6 +23,18 @@ with
         from
             {{ ref('dim_cidades') }}
     ),
+    dim_estados as (
+        select
+            *
+        from
+            {{ ref('dim_estados') }}
+    ),
+    dim_paises as (
+        select
+            *
+        from
+            {{ ref('dim_paises') }}
+    ),
     dim_motivo_vendas as (
         select
             *
@@ -41,6 +53,8 @@ with
             dim_vendedores.sk_vendedor,
             dim_data_vendas.sk_data,
             dim_cidades.sk_cidade,
+            dim_estados.sk_estado,
+            dim_paises.sk_pais,
             dim_motivo_vendas.sk_motivo_venda,
             vendas.id_venda,
             vendas.ds_cartao,
@@ -64,6 +78,10 @@ with
                 on dim_cidades.id_endereco = vendas.id_endereco_cliente
             left join dim_motivo_vendas
                 on dim_motivo_vendas.id_venda = vendas.id_venda
+            left join dim_estados 
+                on dim_estados.id_estado = dim_cidades.id_estado
+            left join dim_paises
+                on dim_paises.cd_pais = dim_estados.cd_pais
     ),
     transformacao as (
         select
