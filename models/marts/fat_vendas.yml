@@ -3,10 +3,63 @@ version: 2
 
 models:
   - name: fat_vendas
-    description: Essa é a fato vendas
+    description: Essa é a fato vendas com dados provenientes das tabelas
+                 DIM_CLIENTES,
+                 DIM_VENDEDORES,
+                 DIM_DATA_VENDAS,
+                 DIM_CIDADES,
+                 DIM_ESTADOS,
+                 DIM_PAISES,
+                 DIM_MOTIVO_VENDAS,
+                 INT_VENDAS
+                    - SALES.SALESORDERHEADER
+                    - SALES.CREDITCARD
     columns:
       - name: sk_venda	
-        description: essa é a coluna chave surrogate key da tabela
+        description: essa é a coluna chave surrogate key da tabela gerada a partir da função GENERATE_SURROGATE_KEY do dbt
         tests:
           - unique
           - not_null
+      - name: sk_cliente
+        description: proveniente da DIM_CLIENTES com o relacionamento da coluna ID_CLIENTE com a tabela de INT_VENDAS
+                     que é proveniente da coluna SALESPERSONID da tabela SALES.SALESORDERHEADER
+      - name: sk_vendedor
+        description: proveniente da DIM_VENDEDORES com o relacionamento da coluna ID_VENDEDORES com a tabela de INT_VENDAS
+                     que é proveniente da coluna SALESPERSONID da tabela SALES.SALESORDERHEADER
+      - name: sk_data
+        description: proveniente da DIM_DATA_VENDAS com o relacionamento da coluna DT_CRIACAO_VENDA com a tabela de INT_VENDAS
+                     que é proveniente da coluna ORDERDATE da tabela SALES.SALESORDERHEADER
+      - name: sk_cidade
+        description: proveniente da DIM_CIDADES com o relacionamento da coluna ID_ENDERECO com a tabela de INT_VENDAS
+                     que é proveniente da coluna ORDERDATE da tabela SALES.SALESORDERHEADER
+      - name: sk_estado
+        description: proveniente da DIM_ESTADOS com o relacionamento da coluna ID_ESTADO com a tabela de DIM_CIDADES
+                     que é proveniente da coluna STATEPROVINCEID da tabela PERSON.STATEPROVINCE
+      - name: sk_pais
+        description: proveniente da DIM_PAISES com o relacionamento da coluna CD_PAIS com a tabela DIM_ESTADOS
+                     que é proveniente da coluna COUNTRYREGIONCODE da tabela PERSON.COUNTRYREGION
+      - name: sk_motivo_venda
+        description: proveniente da DIM_MOTIVO_VENDAS com o relacionamento da coluna ID_VENDA com a tabela de INT_VENDAS
+                     que é proveniente da coluna ORDERDATE da tabela SALES.SALESORDERHEADER
+      - name: id_venda
+        description: proveniente da INT_VENDAS que é proveniente da coluna SALESORDERID da tabela SALES.SALESORDERHEADERSALESREASON
+      - name: ds_cartao
+        description: proveniente da INT_VENDAS que é proveniente da coluna CARDTYPE da tabela SALES.CREDITCARD
+      - name: dt_criacao_venda
+        description: proveniente da INT_VENDAS que é proveniente da coluna ORDERDATE da tabela SALES.SALESORDERHEADER
+      - name: dt_pedido_cliente
+        description: proveniente da INT_VENDAS que é proveniente da coluna DUEDATE da tabela SALES.SALESORDERHEADER
+      - name: dt_envio_cliente
+        description: proveniente da INT_VENDAS que é proveniente da coluna SHIPDATE da tabela SALES.SALESORDERHEADER
+      - name: vl_frete
+        description: proveniente da INT_VENDAS que é proveniente da coluna FREIGHT da tabela SALES.SALESORDERHEADER
+      - name: vl_total_venda
+        description: proveniente da INT_VENDAS que é proveniente da coluna TOTALDUE da tabela SALES.SALESORDERHEADER
+      - name: vl_subtotal
+        description: proveniente da INT_VENDAS que é proveniente da coluna SUBTOTAL da tabela SALES.SALESORDERHEADER
+      - name: vl_imposto
+        description: proveniente da INT_VENDAS que é proveniente da coluna TAXAMT da tabela SALES.SALESORDERHEADER
+      - name: ds_status
+        description: proveniente da INT_VENDAS que é proveniente da coluna STATUS da tabela SALES.SALESORDERHEADER
+      - name: dh_atualizacao
+        description: data e hora que esse objeto foi executado

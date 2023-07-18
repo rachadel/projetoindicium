@@ -3,7 +3,8 @@ version: 2
 
 models:
   - name: dim_vendedores
-    description: Essa é a dimensão de vendedores com dados proveniente da tabela sales.Salesperson
+    description: Essa é a dimensão de vendedores com dados proveniente das tabelas
+                 PERSON.PERSON, HR.EMPLOYEE, SALES.SALESPERSON
     columns:
       - name: sk_vendedor	
         description: essa é a coluna chave surrogate key da tabela
@@ -11,10 +12,16 @@ models:
           - unique
           - not_null
       - name: id_vendedor	
-      - name: id_endereco
+        description: proveniente da coluna BUSINESSENTITYID da tabela HR.EMPLOYEE
       - name: nm_vendedor
+        description: proveniente da coluna NOME da tabela PERSON.PERSON
       - name: dt_nascimento
+        description: proveniente da coluna BIRTHDATE da tabela HR.EMPLOYEE
       - name: dt_contratado
+        description: proveniente da coluna HIREDATE da tabela HR.EMPLOYEE
       - name: ds_genero
+        description: proveniente da coluna GENDER da tabela HR.EMPLOYEE
       - name: ds_situacao
+        description: proveniente da coluna CURRENTFLAG da tabela HR.EMPLOYEE
       - name: dh_atualizacao
+        description: data e hora que esse objeto foi executado

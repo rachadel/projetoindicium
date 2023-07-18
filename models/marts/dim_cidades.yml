@@ -3,7 +3,7 @@ version: 2
 
 models:
   - name: dim_cidades
-    description: Essa é a dimensão de cidades com dados proveniente da tabela person.address
+    description: Essa é a dimensão de cidades com dados proveniente da tabela PERSON.ADDRESS
     columns:
       - name: sk_cidade	
         description: essa é a coluna chave surrogate key da tabela
@@ -11,8 +11,16 @@ models:
           - unique
           - not_null      
       - name: id_endereco
+        description: proveniente da coluna ADDRESSID
       - name: id_estado
+        description: proveniente da coluna STATEPROVINCEID
       - name: ds_endereco
+        description: proveniente da coluna ADDRESSLINE1
       - name: ds_complemento
+        description: proveniente da coluna ADDRESSLINE2
       - name: cd_postal
+        description: proveniente da coluna POSTALCODE
       - name: ds_cidade
+        description: proveninete da coluna CITY
+      - name: dh_atualizacao
+        description: data e hora que o objeto é executado 

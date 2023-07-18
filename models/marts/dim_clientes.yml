@@ -3,7 +3,7 @@ version: 2
 
 models:
   - name: dim_clientes
-    description: Essa é a dimensão de clientes com dados proveniente da tabela customers
+    description: Essa é a dimensão de clientes com dados proveniente das tabelas de SALES.CUSTOMER, PERSON.PERSON, SALES.STORE
     columns:
       - name: sk_cliente	
         description: essa é a coluna chave surrogate key da tabela
@@ -11,11 +11,11 @@ models:
           - unique
           - not_null
       - name: id_cliente	
-        description: proveniente da coluna customerid da tabela customer
-      - name: id_endereco
-        description: coluna addressid proveniente do relacionamento entre as tabelas businessentity na coluna businessentityid com a tabela customer na coluna customerid 
-                    e do relacionamento da tabela businessentityaddress na coluna businessentityid com a tabela businessentity na coluna businessentityid 
+        description: proveniente da coluna CUSTOMERID da tabela CUSTOMER
       - name: nm_cliente				
-        description: nome do cliente proveniente do relacionamento da tabela person na coluna BusinessEntityID com a tabela customer na coluna personid
+        description: proveniente das colunas PERSON.NAME ou STORE.NAME, quando um está nulo, retorna o outro
+                     pelo relacionamento da tabela CUSTOMER na coluna STOREID com a tabela STORE na coluna BUSINESSENTITYID
+      - name: ds_tipo_cliente
+        description: caso a coluna PERSONID da tabela CUSTOMER não seja nula, indica que é um CLIENTE, se não, é uma LOJA
       - name: dh_atualizacao
-        description: data e hora que foi gerado essa informação
+        description: data e hora que esse objeto foi executado
