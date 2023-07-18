@@ -1,0 +1,3 @@
+models:
+  - name: total_vendido_2011
+    description: esse teste verifica se no ano de 2011 o total vendido está entre $14.155.698,00 e $14.155.700,00 e caso nao esteja, retorna erro no momento do deploy
