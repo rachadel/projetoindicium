@@ -3,7 +3,7 @@ version: 2
 
 models:
   - name: dim_paises
-    description: Essa é a dimensão de países com dados proveniente da tabela person.countryregion
+    description: Essa é a dimensão de países com dados proveniente da tabela PERSON.COUNTRYREGION
     columns:
       - name: sk_pais	
         description: essa é a coluna chave surrogate key da tabela
@@ -11,4 +11,8 @@ models:
           - unique
           - not_null      
       - name: cd_pais
+        description: proveniente da coluna COUNTRYREGIONCODE
       - name: ds_pais
+        description: proveniente da coluna NAME
+      - name: dh_atualizacao
+        description: data e hora que esse objeto foi executado

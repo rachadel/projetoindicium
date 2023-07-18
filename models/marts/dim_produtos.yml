@@ -3,7 +3,8 @@ version: 2
 
 models:
   - name: dim_produtos
-    description: Essa é a dimensão de produtos com dados proveniente da tabela sales.salesorderdetail e production.product
+    description: Essa é a dimensão de produtos com dados proveniente das tabelas
+                 PRODUCTION.PRODUCT, PRODUCTION.PRODUCTMODEL, PRODUCTION.PRODUCTSUBCATEGORY, PRODUCTION.PRODUCTCATEGORY
     columns:
       - name: sk_produto	
         description: essa é a coluna chave surrogate key da tabela
@@ -11,10 +12,18 @@ models:
           - unique
           - not_null      
       - name: id_produto
+        description: proveniente da coluna PRODUCTID da tabela PRODUCTION.PRODUCT
       - name: nm_produto
+        description: proveniente da coluna NAME da tabela PRODUCTION.PRODUCT
       - name: nm_modelo_produto
+        description: proveniente da coluna NAME da tabela PRODUCTION.PRODUCTMODEL
       - name: nm_subcategoria_produto
+        description: proveniente da coluna NAME da tabela PRODUCTION.PRODUCTSUBCATEGORY
       - name: nm_categoria_produto
+        description: proveniente da coluna NAME da tabela PRODUCTION.PRODUCTCATEGORY
       - name: ds_cor
+        description: proveniente da coluna COLOR da tabela PRODUCTION.PRODUCT
       - name: nr_produto
+        description: proveniente da coluna PRODUCTNUMBER da tabela PRODUCTION.PRODUCT
       - name: dh_atualizacao
+        description: data e hora que esse objeto foi executado

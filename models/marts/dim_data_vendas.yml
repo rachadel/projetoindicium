@@ -3,7 +3,7 @@ version: 2
 
 models:
   - name: dim_data_vendas
-    description: Essa é a dimensão de data das vendas com dados proveniente da tabela sales.salesorderheader
+    description: Essa é a dimensão de data das vendas com dados proveniente da tabela SALES.SALESORDERHEADER
     columns:
       - name: sk_data	
         description: essa é a coluna chave surrogate key da tabela
@@ -11,8 +11,14 @@ models:
           - unique
           - not_null      
       - name: dt_ano
+        description: extração do ano da coluna ORDERDATE
       - name: dt_mes
+        description: extração do mês da coluna ORDERDATE
       - name: dt_dia
+        description: extração do dia da coluna ORDERDATE
       - name: dt_criacao_venda
+        description: proveniente da coluna ORDERDATE
       - name: ds_mes_ano
+        description: condição de relacionamento com o número do mês e o respectivo nome, concatenando com o ano
       - name: dh_atualizacao
+        description: data e hora que o objeto foi executado

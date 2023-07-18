@@ -3,7 +3,7 @@ version: 2
 
 models:
   - name: dim_estados
-    description: Essa é a dimensão de estados com dados proveniente da tabela person.stateprovince
+    description: Essa é a dimensão de estados com dados proveniente da tabela PERSON.STATEPROVINCE
     columns:
       - name: sk_estado	
         description: essa é a coluna chave surrogate key da tabela
@@ -11,8 +11,14 @@ models:
           - unique
           - not_null 
       - name: id_estado
+        description: proveniente da coluna STATEPROVINCEID
       - name: id_territorio
+        description: proveniente da coluna TERRITORYID
       - name: cd_estado
+        description: proveniente da coluna STATEPROVINCECODE
       - name: nm_estado
+        description: proveniente da coluna NAME
       - name: cd_pais
+        description: proveniente da coluna COUNTRYREGIONCODE
       - name: dh_atualizacao
+        description: data e hora que o objeto foi executado

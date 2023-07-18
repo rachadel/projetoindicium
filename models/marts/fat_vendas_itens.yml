@@ -3,10 +3,34 @@ version: 2
 
 models:
   - name: fat_vendas_itens
-    description: Essa é a fato dos itens das vendas
+    description: Essa é a fato do itens das vendas com dados provenientes das tabelas
+                 DIM_PRODUTOS,
+                 INT_VENDAS_ITENS
+                    - SALES.SALESORDEDETAIL
     columns:
       - name: sk_venda_item	
-        description: essa é a coluna chave surrogate key da tabela
+        description: essa é a coluna chave surrogate key da tabela gerada a partir da função GENERATE_SURROGATE_KEY do dbt
         tests:
           - unique
           - not_null
+      - name: sk_produto
+        description: proveniente da DIM_PRODUTOS com o relacionamento da coluna ID_PRODUTO com a tabela de INT_VENDAS_ITENS
+                     que é proveniente da coluna PRODUCTID da tabela PRODUCTION.PRODUCT
+      - name: id_venda
+        description: proveniente da INT_VENDAS_ITENS que é proveniente da coluna SALESORDERID da tabela SALES.SALESORDEDETAIL
+      - name: id_venda_item
+        description: proveniente da INT_VENDAS_ITENS que é proveniente da coluna SALESORDERDETAILID da tabela SALES.SALESORDEDETAIL
+      - name: vl_item
+        description: proveniente da INT_VENDAS_ITENS que é proveniente da coluna UNITPRICE da tabela SALES.SALESORDEDETAIL
+      - name: qt_item
+        description: proveniente da INT_VENDAS_ITENS que é proveniente da coluna ORDERQTY da tabela SALES.SALESORDEDETAIL
+      - name: vl_desconto_item
+        description: proveniente da INT_VENDAS_ITENS que é proveniente da coluna UNITPRICEDISCOUNT da tabela SALES.SALESORDEDETAIL
+      - name: vl_total_bruto
+        description: proveniente da multiplicação entre VL_ITEM e QT_ITEM
+      - name: vl_total_liquido
+        description: proveniente do seguinte cálculo (1 - VL_DESCONTO_ITEM) * VL_ITEM * QT_ITEM
+      - name: fl_possui_desconto
+        description: caso VL_DESCONTO_ITEM for maior que 0, então campo é Verdadeiro, se não, é FALSO     
+      - name: dh_atualizacao
+        description: data e hora que esse objeto foi executado                                                         
